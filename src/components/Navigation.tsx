@@ -1,18 +1,9 @@
-import Link from 'next/link'
-import styled from 'styled-components'
-
-const Margin = styled.div`
-  margin: 1rem;
-`
+import ClickableLink from './atoms/ClickableLink'
 
 function Navigation() {
   return (
     <nav>
-      <Margin>
-        <Link href="/about">
-          <a href="/about">About</a>
-        </Link>
-      </Margin>
+      <ClickableLink href="/about" name="About" />
     </nav>
   )
 }
