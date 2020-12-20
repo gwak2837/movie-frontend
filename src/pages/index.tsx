@@ -1,4 +1,5 @@
 import { Card } from 'antd'
+import Error from 'src/components/atoms/Error'
 import PageLayout from 'src/components/layouts/PageLayout'
 import MovieCard from 'src/components/MovieCard'
 import PageTitle from 'src/components/PageTitle'
@@ -18,7 +19,7 @@ function HomePage() {
     <PageTitle title="Movie App">
       <PageLayout>
         {loading && <Card loading={loading} />}
-        {error && <div>Error occured</div>}
+        {error && <Error />}
         {movies?.map((movie) => (
           <MovieCard key={movie.id} movie={movie} />
         ))}
