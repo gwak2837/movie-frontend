@@ -7,6 +7,7 @@ import { AuthenticationContext } from './contexts/AuthenticationProvider'
 import LogoutButton from './LogoutButton'
 
 const FlexContainer = styled.div`
+  min-width: 250px;
   display: flex;
   justify-content: space-between;
   background: linear-gradient(45deg, #ddffe0 0%, #c6dfdc 50%, #ccc8e6 100%);

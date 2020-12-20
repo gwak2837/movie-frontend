@@ -4,8 +4,6 @@ import { ReactNode, useCallback, useRef } from 'react'
 import styled from 'styled-components'
 
 const StyledCard = styled(Card)`
-  margin: 1rem;
-
   box-shadow: 0 0 0 1px rgba(16, 22, 26, 0.15), 0 0 0 rgba(16, 22, 26, 0), 0 0 0 rgba(16, 22, 26, 0);
   transition: transform 200ms cubic-bezier(0.4, 1, 0.75, 0.9),
     box-shadow 200ms cubic-bezier(0.4, 1, 0.75, 0.9);

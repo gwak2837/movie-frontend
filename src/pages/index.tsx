@@ -5,6 +5,12 @@ import MovieCard from 'src/components/MovieCard'
 import PageTitle from 'src/components/PageTitle'
 import { useMoviesQuery } from 'src/graphql/generated/types-and-hooks'
 import { handleApolloError } from 'src/utils/apollo'
+import styled from 'styled-components'
+
+const GridContainer = styled.div`
+  display: grid;
+  gap: 1rem;
+`
 
 function HomePage() {
   const { data, loading, error } = useMoviesQuery({
@@ -20,9 +26,11 @@ function HomePage() {
       <PageLayout>
         {loading && <Card loading={loading} />}
         {error && <Error />}
-        {movies?.map((movie) => (
-          <MovieCard key={movie.id} movie={movie} />
-        ))}
+        <GridContainer>
+          {movies?.map((movie) => (
+            <MovieCard key={movie.id} movie={movie} />
+          ))}
+        </GridContainer>
       </PageLayout>
     </PageTitle>
   )
