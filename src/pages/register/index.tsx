@@ -51,7 +51,7 @@ const validateName = {
 }
 
 function RegisterPage() {
-  const [register] = useRegisterMutation({
+  const [register, { loading }] = useRegisterMutation({
     onCompleted: (data) => {
       if (data.register) {
         showSuccessMessage('회원가입에 성공했습니다.')
@@ -85,6 +85,7 @@ function RegisterPage() {
               <Controller
                 as={<Input />}
                 control={control}
+                disabled={loading}
                 name="email"
                 rules={validateEmail}
                 placeholder="이메일을 입력해주세요"
@@ -101,6 +102,7 @@ function RegisterPage() {
               <Controller
                 as={<Input />}
                 control={control}
+                disabled={loading}
                 name="password"
                 rules={validatePassword}
                 placeholder="비밀번호를 최소 5글자 이상 입력해주세요"
@@ -118,6 +120,7 @@ function RegisterPage() {
               <Controller
                 as={<Input />}
                 control={control}
+                disabled={loading}
                 name="name"
                 rules={validateName}
                 placeholder="이름을 입력해주세요"
@@ -129,7 +132,7 @@ function RegisterPage() {
               />
             </label>
 
-            <Button htmlType="submit" type="primary">
+            <Button disabled={loading} htmlType="submit" type="primary">
               회원가입
             </Button>
           </GridContainer>

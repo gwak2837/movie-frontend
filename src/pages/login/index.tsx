@@ -15,7 +15,7 @@ import { GridContainer, RedText, validateEmail, validatePassword } from '../regi
 function LoginPage() {
   const { user, refetch } = useContext(AuthenticationContext)
 
-  const [login] = useLoginMutation({
+  const [login, { loading }] = useLoginMutation({
     onCompleted: (data) => {
       if (data.login) {
         refetch()
@@ -53,6 +53,7 @@ function LoginPage() {
               <Controller
                 as={<Input />}
                 control={control}
+                disabled={loading}
                 name="email"
                 rules={validateEmail}
                 placeholder="이메일을 입력해주세요"
@@ -69,6 +70,7 @@ function LoginPage() {
               <Controller
                 as={<Input />}
                 control={control}
+                disabled={loading}
                 name="password"
                 rules={validatePassword}
                 placeholder="비밀번호를 5글자 이상 입력해주세요"
@@ -81,7 +83,7 @@ function LoginPage() {
               />
             </label>
 
-            <Button htmlType="submit" type="primary">
+            <Button disabled={loading} htmlType="submit" type="primary">
               로그인
             </Button>
           </GridContainer>
