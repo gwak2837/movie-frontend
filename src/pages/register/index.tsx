@@ -15,7 +15,7 @@ import styled from 'styled-components'
 
 export const GridContainer = styled.div`
   display: grid;
-  grid-template-columns: minmax(300px, 500px);
+  grid-template-columns: minmax(250px, 500px);
   justify-content: center;
   gap: 2rem;
 `

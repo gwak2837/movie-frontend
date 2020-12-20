@@ -71,7 +71,7 @@ function LoginPage() {
                 control={control}
                 name="password"
                 rules={validatePassword}
-                placeholder="비밀번호를 최소 5글자 이상 입력해주세요"
+                placeholder="비밀번호를 5글자 이상 입력해주세요"
                 type="password"
               />
               <ErrorMessage

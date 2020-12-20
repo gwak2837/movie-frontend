@@ -5,17 +5,18 @@ import Header from '../Header'
 import Navigation from '../Navigation'
 
 const GridContainer = styled.div`
+  min-width: 250px;
   min-height: 100vh;
   display: grid;
-  grid-template-rows: 50px 1fr auto;
+  grid-template-rows: 57px 1fr auto;
   grid-template-columns: auto 1fr;
   grid-template-areas:
     'header header'
     ' nav    main '
-    'footer footer';
+    ' nav   footer';
 
   @media (max-width: 634px) {
-    grid-template-rows: 100px auto 1fr auto;
+    grid-template-rows: 57px auto 1fr auto;
     grid-template-columns: 1fr;
     grid-template-areas:
       'header'
