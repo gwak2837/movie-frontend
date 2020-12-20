@@ -17,7 +17,8 @@
     "generate": "graphql-codegen --config codegen.yml && prettier src/graphql/generated/*.* --write",
     "lint": "eslint . --fix --ignore-path .gitignore",
     "format": "prettier . --write --ignore-path .gitignore",
-    "test": "jest"
+    "test": "jest",
+    "pre-push": "yarn lint && tsc --pretty"
   },
   "dependencies": {
     "@apollo/client": "^3.3.6",
@@ -71,7 +72,7 @@
   ],
   "husky": {
     "hooks": {
-      "pre-push": "yarn lint && yarn tsc"
+      "pre-push": "yarn pre-push"
     }
   }
 }

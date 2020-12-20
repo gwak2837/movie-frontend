@@ -1,5 +1,8 @@
 query Me {
   me {
-    token
+    id
+    email
+    name
+    role
   }
 }

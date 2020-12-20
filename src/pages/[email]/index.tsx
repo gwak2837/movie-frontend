@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { AuthenticationContext } from 'src/components/contexts/AuthenticationProvider'
 import PageLayout from 'src/components/layouts/PageLayout'
 import PageTitle from 'src/components/PageTitle'
-import useAuthentication from 'src/hooks/useAuthentication'
 
 function MyPage() {
-  const { user } = useAuthentication()
+  const { user } = useContext(AuthenticationContext)
+
   return (
     <PageTitle title="Movie App - My Page">
       <PageLayout>

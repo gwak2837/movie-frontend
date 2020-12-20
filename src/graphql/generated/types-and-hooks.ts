@@ -106,7 +106,7 @@ export type RegisterMutation = { __typename?: 'Mutation' } & Pick<Mutation, 'reg
 export type MeQueryVariables = Exact<{ [key: string]: never }>
 
 export type MeQuery = { __typename?: 'Query' } & {
-  me?: Maybe<{ __typename?: 'User' } & Pick<User, 'token'>>
+  me?: Maybe<{ __typename?: 'User' } & Pick<User, 'id' | 'email' | 'name' | 'role'>>
 }
 
 export type MovieQueryVariables = Exact<{
@@ -250,7 +250,10 @@ export type RegisterMutationOptions = Apollo.BaseMutationOptions<
 export const MeDocument = gql`
   query Me {
     me {
-      token
+      id
+      email
+      name
+      role
     }
   }
 `
