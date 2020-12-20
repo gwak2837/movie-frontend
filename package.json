@@ -21,6 +21,7 @@
     "pre-push": "yarn lint && tsc --pretty"
   },
   "dependencies": {
+    "@ant-design/icons": "^4.3.0",
     "@apollo/client": "^3.3.6",
     "@hookform/error-message": "^0.0.5",
     "antd": "^4.9.4",
