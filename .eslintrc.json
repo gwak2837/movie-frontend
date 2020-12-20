@@ -1,0 +1,101 @@
+{
+  "env": {
+    "es6": true,
+    "browser": true,
+    "jest": true,
+    "node": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:import/typescript",
+    "plugin:jsx-a11y/recommended",
+    "plugin:node/recommended",
+    "plugin:promise/recommended",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "prettier",
+    "prettier/@typescript-eslint", // Disables eslint features that conflicts with prettier
+    "plugin:prettier/recommended" // prettier/recommended MUST be at the last of the array
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": 2020,
+    "sourceType": "module", // Allows for the use of imports
+    "ecmaFeatures": {
+      "jsx": true // Allows for the parsing of JSX
+    },
+    "project": "./tsconfig.json"
+  },
+  "plugins": ["prettier", "react", "@typescript-eslint"],
+  "rules": {
+    "default-case": "off", // TypeScript's `noFallthroughCasesInSwitch` option is more robust (#6906)
+    "no-array-constructor": "off", // Add TypeScript specific rules (and turn off ESLint equivalents)
+    "no-console": [
+      "warn",
+      {
+        "allow": ["warn", "error"]
+      }
+    ],
+    "no-dupe-class-members": "off", // 'tsc' already handles this (https://github.com/typescript-eslint/typescript-eslint/issues/291)
+    "no-undef": "off", // 'tsc' already handles this (https://github.com/typescript-eslint/typescript-eslint/issues/477)
+    "no-unused-expressions": "off", // Add TypeScript specific rules (and turn off ESLint equivalents)
+    "no-unused-vars": "off", // Add TypeScript specific rules (and turn off ESLint equivalents)
+    "no-use-before-define": "off", // Add TypeScript specific rules (and turn off ESLint equivalents)
+    "no-useless-constructor": "off", // Add TypeScript specific rules (and turn off ESLint equivalents)
+    "no-var": "error",
+
+    "import/no-unresolved": "off",
+
+    "jsx-a11y/click-events-have-key-events": "off",
+    "jsx-a11y/no-noninteractive-element-interactions": "off",
+
+    "node/no-missing-import": "off",
+    "node/no-unpublished-import": "off",
+    "node/no-unsupported-features/es-syntax": "off",
+
+    "react/forbid-prop-types": "error",
+    "react/jsx-one-expression-per-line": "off",
+    "react/jsx-uses-react": "off",
+    "react/no-danger": "error",
+    "react/no-unescaped-entities": "off",
+    "react/react-in-jsx-scope": "off",
+
+    "@typescript-eslint/consistent-type-assertions": "error",
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/explicit-member-accessibility": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "@typescript-eslint/indent": "off",
+    "@typescript-eslint/no-array-constructor": "error",
+    "@typescript-eslint/no-explicit-any": "warn",
+    "@typescript-eslint/no-var-requires": "error",
+    "@typescript-eslint/no-use-before-define": [
+      "error",
+      {
+        "functions": false,
+        "classes": false,
+        "variables": false,
+        "typedefs": false
+      }
+    ],
+    "@typescript-eslint/no-useless-constructor": "error",
+    "@typescript-eslint/no-unused-expressions": "warn",
+    "@typescript-eslint/no-unused-vars": [
+      "warn",
+      {
+        "argsIgnorePattern": "^_"
+      }
+    ]
+  },
+  "settings": {
+    "react": {
+      // React version. "detect" automatically picks the version you have installed.
+      // You can also use `16.0`, `16.3`, etc, if you want to override the detected value.
+      // default to latest and warns if missing
+      // It will default to "detect" in the future
+      "version": "detect"
+    }
+  }
+}
