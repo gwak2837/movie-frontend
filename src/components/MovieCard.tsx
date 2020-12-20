@@ -1,5 +1,4 @@
-import { Card } from 'antd'
-import Link from 'next/link'
+import ClickableCard from './atoms/ClickableCard'
 
 type Props = {
   movie: {
@@ -9,13 +8,7 @@ type Props = {
 }
 
 function MovieCard({ movie }: Props) {
-  return (
-    <Card>
-      <Link href={`/movies/${movie.id}`}>
-        <a href={`/movies/${movie.id}`}>{movie.name}</a>
-      </Link>
-    </Card>
-  )
+  return <ClickableCard href={`/movies/${movie.id}`}>{movie.name}</ClickableCard>
 }
 
 export default MovieCard
