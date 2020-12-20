@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import { useContext } from 'react'
 import { getEmailNameFrom } from 'src/utils/commons'
 import styled from 'styled-components'
@@ -6,17 +5,6 @@ import ClickableLink from './atoms/ClickableLink'
 import Loading from './atoms/Loading'
 import { AuthenticationContext } from './contexts/AuthenticationProvider'
 import LogoutButton from './LogoutButton'
-
-const Padding = styled.div`
-  padding: 1rem;
-  display: inline-block;
-  transition: transform 200ms cubic-bezier(0.4, 1, 0.75, 0.9),
-    background-color 200ms cubic-bezier(0.4, 1, 0.75, 0.9);
-
-  &:hover {
-    background-color: #dddddd;
-  }
-`
 
 const FlexContainer = styled.div`
   display: flex;
