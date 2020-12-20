@@ -10,6 +10,8 @@ function HomePage() {
     onError: handleApolloError,
   })
 
+  console.log(process.env.NODE_ENV, process.env.NEXT_PUBLIC_GRAPHQL_SERVER_URL)
+
   const movies = data?.movies
 
   return (

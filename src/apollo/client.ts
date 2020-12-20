@@ -4,7 +4,7 @@ import { setContext } from '@apollo/client/link/context'
 const cache = new InMemoryCache()
 
 const httpLink = createHttpLink({
-  uri: 'http://localhost:4000/graphql',
+  uri: process.env.NEXT_PUBLIC_GRAPHQL_SERVER_URL,
 })
 
 // Authenticate using HTTP header
