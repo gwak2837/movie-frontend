@@ -1,0 +1,4 @@
+fragment movieF on Movie {
+  id
+  name
+}

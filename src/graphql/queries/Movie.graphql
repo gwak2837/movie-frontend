@@ -1,0 +1,6 @@
+query Movie($id: Int!) {
+  movie(id: $id) {
+    ...movieF
+    rating
+  }
+}
