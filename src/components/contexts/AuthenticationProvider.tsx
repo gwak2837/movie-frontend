@@ -1,10 +1,12 @@
+import { ApolloQueryResult } from '@apollo/client'
 import { createContext, ReactNode, useMemo } from 'react'
-import { MeQuery, useMeQuery } from 'src/graphql/generated/types-and-hooks'
+import { MeQuery, MeQueryVariables, useMeQuery } from 'src/graphql/generated/types-and-hooks'
+
+export enum LOGIN_STATUS {}
 
 type Values = {
-  loading: boolean
   user: MeQuery['me'] | undefined
-  refetch: () => Promise<unknown>
+  refetch: (variables?: Partial<MeQueryVariables>) => Promise<ApolloQueryResult<MeQuery>>
 }
 
 /**
@@ -20,11 +22,12 @@ type Props = {
 }
 
 function AuthenticationProvider({ children }: Props) {
-  const { data, error, loading, refetch } = useMeQuery()
+  const { data, error, networkStatus, refetch } = useMeQuery({ errorPolicy: 'all' })
+
+  const loading = networkStatus < 7
 
   const value = useMemo(
     () => ({
-      loading,
       // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       user: loading ? undefined : error ? null : data!.me,
       refetch,

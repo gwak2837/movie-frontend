@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { useContext } from 'react'
+import { getEmailNameFrom } from 'src/utils/commons'
 import styled from 'styled-components'
 import Loading from './atoms/Loading'
 import { AuthenticationContext } from './contexts/AuthenticationProvider'
@@ -10,7 +11,7 @@ const Margin = styled.span`
 `
 
 function Header() {
-  const { loading, user } = useContext(AuthenticationContext)
+  const { user } = useContext(AuthenticationContext)
 
   return (
     <header>
@@ -19,18 +20,16 @@ function Header() {
           <a href="/">Home</a>
         </Link>
       </Margin>
-      {loading ? (
-        <Loading />
-      ) : user ? (
+      {user ? (
         <>
           <Margin>
-            <Link href="/@${email}">
-              <a href="/@${email}">내 정보</a>
+            <Link href={`/@${getEmailNameFrom(user.email)}`}>
+              <a href={`/@${getEmailNameFrom(user.email)}`}>내 정보</a>
             </Link>
           </Margin>
           <LogoutButton />
         </>
-      ) : (
+      ) : user === null ? (
         <>
           <Margin>
             <Link href="/register">
@@ -43,6 +42,8 @@ function Header() {
             </Link>
           </Margin>
         </>
+      ) : (
+        <Loading />
       )}
     </header>
   )

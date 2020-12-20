@@ -1,10 +1,13 @@
-import React, { useContext } from 'react'
+import { useContext } from 'react'
 import { AuthenticationContext } from 'src/components/contexts/AuthenticationProvider'
 import PageLayout from 'src/components/layouts/PageLayout'
 import PageTitle from 'src/components/PageTitle'
+import useRedirectTo from 'src/hooks/useRedirectTo'
 
 function MyPage() {
   const { user } = useContext(AuthenticationContext)
+
+  useRedirectTo('/login', !user)
 
   return (
     <PageTitle title="Movie App - My Page">

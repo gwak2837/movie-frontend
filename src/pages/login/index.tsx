@@ -1,19 +1,24 @@
 import { ErrorMessage } from '@hookform/error-message'
 import { Input, Button } from 'antd'
 import Inko from 'inko'
-import React, { useCallback } from 'react'
+import { useCallback, useContext } from 'react'
 import { Controller, SubmitHandler, useForm } from 'react-hook-form'
+import { AuthenticationContext } from 'src/components/contexts/AuthenticationProvider'
 import PageLayout from 'src/components/layouts/PageLayout'
 import PageTitle from 'src/components/PageTitle'
 import { LoginMutationVariables, useLoginMutation } from 'src/graphql/generated/types-and-hooks'
+import useRedirectTo from 'src/hooks/useRedirectTo'
 import { showSuccessMessage, showWarningMessage } from 'src/utils/antDesign'
 import { handleApolloError } from 'src/utils/apollo'
 import { GridContainer, RedText, validateEmail, validatePassword } from '../register'
 
 function LoginPage() {
+  const { user, refetch } = useContext(AuthenticationContext)
+
   const [login] = useLoginMutation({
     onCompleted: (data) => {
       if (data.login) {
+        refetch()
         localStorage.setItem('token', data.login.token)
         showSuccessMessage('로그인에 성공했습니다.')
       } else {
@@ -35,6 +40,8 @@ function LoginPage() {
     },
     [login]
   )
+
+  useRedirectTo('/', Boolean(user))
 
   return (
     <PageTitle title="Movie App - Login">
