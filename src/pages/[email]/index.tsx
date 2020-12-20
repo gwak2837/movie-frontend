@@ -7,7 +7,7 @@ import useRedirectTo from 'src/hooks/useRedirectTo'
 function MyPage() {
   const { user } = useContext(AuthenticationContext)
 
-  useRedirectTo('/login', !user)
+  useRedirectTo('/login', !user, '로그인이 필요합니다. 로그인 페이지로 이동합니다.')
 
   return (
     <PageTitle title="Movie App - My Page">
