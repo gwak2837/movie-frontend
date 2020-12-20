@@ -1,9 +1,10 @@
-# Movie Client
+# Movie App Front-End
 
 ## 사용한 라이브러리
 
 - [React](https://ko.reactjs.org/) v17
 - [Next](https://nextjs.org/) v10
+- [Apollo Client](https://www.apollographql.com/docs/react/) v3
 - [TypeScript]() v4
 - [Styled Components](https://styled-components.com/) v5
 - [Ant Design](https://ant.design/) v4
@@ -24,5 +25,41 @@
 - Git (필수)
 - Yarn
 - Visual Studio Code
-- Chrome v86 이상
-- Windows 10, macOS 11, Ubuntu 20.04 이상
+- Chrome v86
+- macOS Big Sur
+
+## 실행 방법
+
+#### 1. 프로젝트 다운로드
+
+```shell
+> git clone https://github.com/rmfpdlxmtidl/movie-frontend.git
+> cd movie-frontend
+```
+
+#### 2. 의존성 패키지 설치
+
+```shell
+> yarn
+```
+
+#### 3. 개발 모드 실행
+
+```shell
+> yarn dev
+```
+
+#### 3. 배포 모드 실행
+
+```shell
+> yarn build && yarn start
+```
+
+#### 4. 브라우저 접속
+
+```
+http://localhost:3000/
+```
+
+## 프로젝트 구조
+
