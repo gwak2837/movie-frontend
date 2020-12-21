@@ -6,7 +6,7 @@ import Loading from './atoms/Loading'
 import { AuthenticationContext } from './contexts/AuthenticationProvider'
 import LogoutButton from './LogoutButton'
 
-const FlexContainer = styled.div`
+const FlexContainerFixed = styled.div`
   min-width: 250px;
   display: flex;
   justify-content: space-between;
@@ -18,29 +18,32 @@ const FlexContainer = styled.div`
   z-index: 1;
 `
 
-const RightAlign = styled.div``
+const FlexContainer = styled.div`
+  display: flex;
+  align-items: center;
+`
 
 function Header() {
   const { user } = useContext(AuthenticationContext)
 
   return (
     <header>
-      <FlexContainer>
+      <FlexContainerFixed>
         <ClickableLink href="/" name="Home" />
         {user ? (
-          <RightAlign>
+          <FlexContainer>
             <ClickableLink href={`/@${getEmailNameFrom(user.email)}`} name="내 정보" />
             <LogoutButton />
-          </RightAlign>
+          </FlexContainer>
         ) : user === null ? (
-          <RightAlign>
-            <ClickableLink href="/register" name="회원가입" inline />
-            <ClickableLink href="/login" name="로그인" inline />
-          </RightAlign>
+          <FlexContainer>
+            <ClickableLink href="/register" name="회원가입" />
+            <ClickableLink href="/login" name="로그인" />
+          </FlexContainer>
         ) : (
           <Loading />
         )}
-      </FlexContainer>
+      </FlexContainerFixed>
     </header>
   )
 }

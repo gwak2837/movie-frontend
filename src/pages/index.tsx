@@ -1,4 +1,5 @@
 import { Card } from 'antd'
+import { useEffect } from 'react'
 import Error from 'src/components/atoms/Error'
 import PageLayout from 'src/components/layouts/PageLayout'
 import MovieCard from 'src/components/MovieCard'
@@ -17,7 +18,9 @@ function HomePage() {
     onError: handleApolloError,
   })
 
-  console.log(process.env.NODE_ENV, process.env.NEXT_PUBLIC_GRAPHQL_SERVER_URL)
+  useEffect(() => {
+    console.log(process.env.NODE_ENV, process.env.NEXT_PUBLIC_GRAPHQL_SERVER_URL)
+  }, [])
 
   const movies = data?.movies
 

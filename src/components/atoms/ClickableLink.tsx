@@ -2,9 +2,8 @@ import Link from 'next/link'
 import { memo, useCallback, useRef } from 'react'
 import styled from 'styled-components'
 
-const Padding = styled.div<{ inline?: boolean }>`
+const Padding = styled.div`
   padding: 1rem;
-  display: ${(p) => (p.inline ? 'inline-block' : 'block')};
   transition: transform 200ms cubic-bezier(0.4, 1, 0.75, 0.9),
     background-color 200ms cubic-bezier(0.4, 1, 0.75, 0.9);
 
@@ -20,7 +19,7 @@ type Props = {
   inline?: boolean
 }
 
-function ClickableLink({ href, name, inline }: Props) {
+function ClickableLink({ href, name }: Props) {
   const linkRef = useRef<HTMLAnchorElement>(null)
 
   const handleClick = useCallback(() => {
@@ -28,7 +27,7 @@ function ClickableLink({ href, name, inline }: Props) {
   }, [])
 
   return (
-    <Padding onClick={handleClick} inline={inline}>
+    <Padding onClick={handleClick}>
       <Link href={href}>
         <a href={href} ref={linkRef}>
           {name}
