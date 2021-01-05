@@ -1,9 +1,8 @@
 {
   "env": {
-    "es6": true,
     "browser": true,
-    "jest": true,
-    "node": true
+    "es2021": true,
+    "jest": true
   },
   "extends": [
     "eslint:recommended",
@@ -13,39 +12,33 @@
     "plugin:jsx-a11y/recommended",
     "plugin:node/recommended",
     "plugin:promise/recommended",
+
     "plugin:react/recommended",
     "plugin:react-hooks/recommended",
     "plugin:@typescript-eslint/recommended",
-    "prettier",
-    "prettier/@typescript-eslint", // Disables eslint features that conflicts with prettier
-    "plugin:prettier/recommended" // prettier/recommended MUST be at the last of the array
+
+    // Rules related with Prettier MUST be at the last of the array
+    "plugin:prettier/recommended",
+    "prettier/react",
+    "prettier/@typescript-eslint"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
-    "ecmaVersion": 2020,
-    "sourceType": "module", // Allows for the use of imports
     "ecmaFeatures": {
       "jsx": true // Allows for the parsing of JSX
     },
-    "project": "./tsconfig.json"
+    "ecmaVersion": 2020,
+    "sourceType": "module" // Allows for the use of imports
   },
-  "plugins": ["prettier", "react", "@typescript-eslint"],
+  "plugins": ["react", "@typescript-eslint"],
+  "root": true,
   "rules": {
-    "default-case": "off", // TypeScript's `noFallthroughCasesInSwitch` option is more robust (#6906)
-    "no-array-constructor": "off", // Add TypeScript specific rules (and turn off ESLint equivalents)
     "no-console": [
       "warn",
       {
         "allow": ["warn", "error"]
       }
     ],
-    "no-dupe-class-members": "off", // 'tsc' already handles this (https://github.com/typescript-eslint/typescript-eslint/issues/291)
-    "no-undef": "off", // 'tsc' already handles this (https://github.com/typescript-eslint/typescript-eslint/issues/477)
-    "no-unused-expressions": "off", // Add TypeScript specific rules (and turn off ESLint equivalents)
-    "no-unused-vars": "off", // Add TypeScript specific rules (and turn off ESLint equivalents)
-    "no-use-before-define": "off", // Add TypeScript specific rules (and turn off ESLint equivalents)
-    "no-useless-constructor": "off", // Add TypeScript specific rules (and turn off ESLint equivalents)
-    "no-var": "error",
 
     "import/no-unresolved": "off",
 
